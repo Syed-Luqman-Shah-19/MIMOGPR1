@@ -35,7 +35,7 @@ This enables **low-overhead CSI acquisition with calibrated uncertainty**, makin
 ## 📄 Paper and Preprint
 
 * **Published version**: Included in this repository as
-  `Research paper.pdf`
+  `Research paper.pdf` [https://doi.org/10.1109/LWC.2025.3648532]
 * **Preprint (LaTeX source)**:
   [https://doi.org/10.48550/arXiv.2510.25390](https://doi.org/10.48550/arXiv.2510.25390)
 
