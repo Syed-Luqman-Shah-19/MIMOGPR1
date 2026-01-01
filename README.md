@@ -197,15 +197,36 @@ Random seeds are fixed where appropriate to ensure reproducibility.
 
 ---
 
+
 ## 📜 Citation
 
-If you use this code or data, please cite:
+If you use this code or data, please cite the following paper.
+
+### Plain-text citation
 
 ```
+
 S. L. Shah, N. H. Mahmood, and I. Atzeni,
 “Low-Overhead CSI Prediction via Gaussian Process Regression,”
 IEEE Wireless Communications Letters, vol. 15, pp. 1075–1079, 2026.
+
+````
+
+### BibTeX
+
 ```
+@article{Shah2026LowOverheadCSI,
+  author  = {Shah, Syed Luqman and Mahmood, Nurul Huda and Atzeni, Italo},
+  title   = {Low-Overhead CSI Prediction via Gaussian Process Regression},
+  journal = {IEEE Wireless Communications Letters},
+  volume  = {15},
+  pages   = {1075--1079},
+  year    = {2026},
+  publisher={IEEE}
+}
+```
+
+
 
 ---
 
