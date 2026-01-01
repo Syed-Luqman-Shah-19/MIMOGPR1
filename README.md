@@ -125,26 +125,26 @@ These results are reported in **Fig. 4** of the paper.
 To assess how well CSI prediction preserves communication performance, the notebook evaluates **spectral efficiency (SE)** under a linear receiver designed from the estimated channel.
 
 * A **linear MMSE detector** is constructed from the estimated channel:
-  [
+  $$
   \mathbf{W}(\widehat{\mathbf{H}})=
-  \left( \widehat{\mathbf{H}}\widehat{\mathbf{H}}^{\mathsf{H}}
-
-  * \frac{N_{\textrm{t}}}{\rho}\mathbf{I}*{N*{\textrm{r}}} \right)^{-1}
+  \left( \widehat{\mathbf{H}}\widehat{\mathbf{H}}^{\mathsf{H}}$$
+ 
+  * $$\frac{N_{\textrm{t}}}{\rho}\mathbf{I}*{N*{\textrm{r}}} \right)^{-1}
     \widehat{\mathbf{H}}
-    ]
+    $$
 * The true channel is always used in the SINR computation:
-  [
+  $$
   \mathrm{SINR}_{k}(\widehat{\mathbf{H}})=
   \frac{|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}*k|^2}
-  {\sum*{j\neq k}|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_j|^2
+  {\sum*{j\neq k}|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_j|^2$$
 
-  * \frac{N_{\textrm{t}}}{\rho}|\mathbf{w}_k|^2}
-    ]
+  * $$\frac{N_{\textrm{t}}}{\rho}|\mathbf{w}_k|^2}
+    $$
 * Spectral efficiency is then:
-  [
+  $$
   \mathrm{SE}(\widehat{\mathbf{H}})=
   \sum_{k=1}^{N_{\textrm{t}}}\log_2\bigl(1+\mathrm{SINR}_k(\widehat{\mathbf{H}})\bigr)
-  ]
+  $$
 
 SE is evaluated for:
 
@@ -202,12 +202,4 @@ IEEE Wireless Communications Letters, vol. 15, pp. 1075–1079, 2026.
 For questions, comments, or reproducibility issues, please contact:
 
 **Syed Luqman Shah**
-(First author)
-
----
-
-If you want, I can next:
-
-* prepare a **Zenodo-ready release description**,
-* add a **`CITATION.cff` file**,
-* or refine this README to **IEEE DataPort / Open Science badges**.
+email: sayedluqmans@gmail.com
