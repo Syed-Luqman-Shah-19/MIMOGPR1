@@ -137,7 +137,8 @@ where $\rho$ denotes the signal-to-noise ratio (SNR), and $\mathbf{w}_k$ is the 
 
 Let $\mathbf{h}_k$ denote the $k$-th column of the **true** channel matrix $\mathbf{H}$. The post-equalization signal-to-interference-plus-noise ratio (SINR) of stream $k$ is computed as
 
-$$\mathrm{SINR}_{k}(\widehat{\mathbf{H}})=\frac{\left|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_k\right|^2}{\sum_{j\neq k}\left|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_j\right|^2+\frac{N_{\mathrm{t}}}{\rho}\,\lVert\mathbf{w}_k\rVert^2}
+$$
+\mathrm{SINR}_{k}(\widehat{\mathbf{H}})=\frac{\left|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_k\right|^2}{\sum_{j\neq k}\left|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_j\right|^2+\frac{N_{\mathrm{t}}}{\rho}\,\lVert\mathbf{w}_k\rVert^2}
 $$.
 
 Note that the **true channel $\mathbf{H}$** is always used inside the SINR expression, while the estimate $\widehat{\mathbf{H}}$ affects performance only through the detector $\mathbf{W}(\widehat{\mathbf{H}})$.
