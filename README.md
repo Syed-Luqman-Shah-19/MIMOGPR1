@@ -20,7 +20,7 @@ The codebase reproduces **all numerical results, figures, and tables** reported 
 
 ## 🧠 Core Idea
 
-The key insight of this work is that **wireless channels exhibit structured spatial correlations** induced by the antenna array geometry. Gaussian Process Regression naturally exploits this structure through its kernel (covariance) function.
+The key insight of this work is that **wireless channels exhibit structured spatial correlations** induced by the antenna array geometry. GPR naturally exploits this structure through its kernel (covariance) function.
 
 With only a few observed channel entries, GPR:
 
