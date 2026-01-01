@@ -102,9 +102,7 @@ This file acts as a compact data container used by all subsequent experiments.
 This section evaluates the **uncertainty calibration** of GPR.
 
 * Computes the empirical coverage probability of the marginal 95% credible intervals:
-  $
-  \widehat{H}*{ij} \pm 1.96,\sigma*{ij}
-  $
+  $\widehat{H}*{ij} \pm 1.96,\sigma*{ij}$
 * Coverage is reported for:
 
   * RBF kernel
@@ -121,72 +119,65 @@ These results are reported in **Fig. 4** of the paper.
 ---
 
 ### 4️⃣ Spectral Efficiency Evaluation (Fig. 3 and Table II)
+
 To assess how well CSI prediction preserves communication performance, the notebook evaluates the **spectral efficiency (SE)** of a multi-stream MIMO link using a linear receiver designed from the *estimated* channel.
 
 #### Linear MMSE Detector
 
-Given an estimated channel
-(\widehat{\mathbf{H}} \in \mathbb{C}^{N_{\mathrm{r}} \times N_{\mathrm{t}}}),
-the linear minimum mean-square error (LMMSE) detector is constructed as
+Given an estimated channel $\widehat{\mathbf{H}} \in \mathbb{C}^{N_{\mathrm{r}} \times N_{\mathrm{t}}}$, the linear minimum mean-square error (LMMSE) detector is constructed as
 
-[
+$$
 \mathbf{W}(\widehat{\mathbf{H}})
-================================
-
+=
 \left(
 \widehat{\mathbf{H}}\widehat{\mathbf{H}}^{\mathsf{H}}
 +
-\frac{N_{\mathrm{t}}}{\rho}\mathbf{I}*{N*{\mathrm{r}}}
+\frac{N_{\mathrm{t}}}{\rho}\mathbf{I}_{N_{\mathrm{r}}}
 \right)^{-1}
 \widehat{\mathbf{H}}
-====================
+=
+[\mathbf{w}_1,\ldots,\mathbf{w}_{N_{\mathrm{t}}}],
+$$
 
-[\mathbf{w}*1,\ldots,\mathbf{w}*{N_{\mathrm{t}}}],
-]
-
-where (\rho) denotes the signal-to-noise ratio (SNR), and
-(\mathbf{w}_k) is the detector vector for stream (k).
+where $\rho$ denotes the signal-to-noise ratio (SNR), and $\mathbf{w}_k$ is the detector vector for stream $k$.
 
 #### Post-Equalization SINR
 
-Let (\mathbf{h}_k) denote the (k)-th column of the **true** channel matrix (\mathbf{H}).
-The post-equalization signal-to-interference-plus-noise ratio (SINR) of stream (k) is computed as
+Let $\mathbf{h}_k$ denote the $k$-th column of the **true** channel matrix $\mathbf{H}$. The post-equalization signal-to-interference-plus-noise ratio (SINR) of stream $k$ is computed as
 
-[
+$$
 \mathrm{SINR}_{k}(\widehat{\mathbf{H}})
-=======================================
-
-\frac{\bigl|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}*k\bigr|^2}
-{\sum*{j\neq k}\bigl|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}*j\bigr|^2
+=
+\frac{\bigl|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_k\bigr|^2}
+{\sum_{j\neq k}\bigl|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_j\bigr|^2
 +
-\frac{N*{\mathrm{t}}}{\rho},|\mathbf{w}_k|^2}.
-]
+\frac{N_{\mathrm{t}}}{\rho}\,\|\mathbf{w}_k\|^2}.
+$$
 
-Note that the **true channel (\mathbf{H})** is always used inside the SINR expression, while the estimate (\widehat{\mathbf{H}}) affects performance only through the detector (\mathbf{W}(\widehat{\mathbf{H}})).
+Note that the **true channel $\mathbf{H}$** is always used inside the SINR expression, while the estimate $\widehat{\mathbf{H}}$ affects performance only through the detector $\mathbf{W}(\widehat{\mathbf{H}})$.
 
 #### Spectral Efficiency
 
 The corresponding spectral efficiency is then given by
 
-[
+$$
 \mathrm{SE}(\widehat{\mathbf{H}})
-=================================
-
+=
 \sum_{k=1}^{N_{\mathrm{t}}}
-\log_2!\left(1+\mathrm{SINR}_{k}(\widehat{\mathbf{H}})\right).
-]
+\log_2\!\left(1+\mathrm{SINR}_{k}(\widehat{\mathbf{H}})\right).
+$$
 
 #### Compared Estimators
 
 Spectral efficiency is evaluated for the following channel estimates:
 
-* True channel (\mathbf{H})
-* GPR-predicted channel (\widehat{\mathbf{H}}_{\mathrm{GPR}})
-* Least-squares (LS) estimate (\widehat{\mathbf{H}}_{\mathrm{LS}})
-* MMSE estimate (\widehat{\mathbf{H}}_{\mathrm{MMSE}})
+- True channel $\mathbf{H}$
+- GPR-predicted channel $\widehat{\mathbf{H}}_{\mathrm{GPR}}$
+- Least-squares (LS) estimate $\widehat{\mathbf{H}}_{\mathrm{LS}}$
+- MMSE estimate $\widehat{\mathbf{H}}_{\mathrm{MMSE}}$
 
-All three GPR kernels (RBF, Matérn, and Rational Quadratic) are implemented in the repository.
-However, **only the Matérn kernel** is reported in **Fig. 3 and Table II** of the paper.
+All three GPR kernels (RBF, Matérn, and Rational Quadratic) are implemented in the repository. However, **only the Matérn kernel** is reported in **Fig. 3 and Table II** of the paper.
+
 
 ---
 
