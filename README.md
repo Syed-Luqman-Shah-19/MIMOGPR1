@@ -49,12 +49,11 @@ If you use this repository, please cite the published IEEE WCL paper.
 .
 ├── Research paper.pdf
 ├── First_Letter.ipynb
-├── channel_models_compact.h5
-├── figures/
-│   ├── per_entry_error/
-│   ├── credible_intervals/
-│   └── spectral_efficiency/
-├── requirements.txt
+│  ├── channel_models_compact.h5
+│  ├── figures/
+│     ├── per_entry_error/
+│     ├── credible_intervals/
+│     └── spectral_efficiency/
 └── README.md
 ```
 
