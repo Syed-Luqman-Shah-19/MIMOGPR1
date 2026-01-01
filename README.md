@@ -126,7 +126,7 @@ To assess how well CSI prediction preserves communication performance, the noteb
 
 Given an estimated channel $\widehat{\mathbf{H}} \in \mathbb{C}^{N_{\mathrm{r}} \times N_{\mathrm{t}}}$, the linear minimum mean-square error (LMMSE) detector is constructed as
 
-$$
+\[
 \mathbf{W}(\widehat{\mathbf{H}})
 =
 \left(
@@ -137,7 +137,7 @@ $$
 \widehat{\mathbf{H}}
 =
 [\mathbf{w}_1,\ldots,\mathbf{w}_{N_{\mathrm{t}}}]
-$$
+\]
 
 
 where $\rho$ denotes the signal-to-noise ratio (SNR), and $\mathbf{w}_k$ is the detector vector for stream $k$.
