@@ -102,9 +102,9 @@ This file acts as a compact data container used by all subsequent experiments.
 This section evaluates the **uncertainty calibration** of GPR.
 
 * Computes the empirical coverage probability of the marginal 95% credible intervals:
-  [
+  $$
   \widehat{H}*{ij} \pm 1.96,\sigma*{ij}
-  ]
+  $$
 * Coverage is reported for:
 
   * RBF kernel
