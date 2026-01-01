@@ -121,34 +121,72 @@ These results are reported in **Fig. 4** of the paper.
 ---
 
 ### 4️⃣ Spectral Efficiency Evaluation (Fig. 3 and Table II)
+To assess how well CSI prediction preserves communication performance, the notebook evaluates the **spectral efficiency (SE)** of a multi-stream MIMO link using a linear receiver designed from the *estimated* channel.
 
-To assess how well CSI prediction preserves communication performance, the notebook evaluates **spectral efficiency (SE)** under a linear receiver designed from the estimated channel.
+#### Linear MMSE Detector
 
-* A **linear MMSE detector** is constructed from the estimated channel:
-  
-  $\mathbf{W}(\widehat{\mathbf{H}})=
-  \left( \widehat{\mathbf{H}}\widehat{\mathbf{H}}^{\mathsf{H}}$
- 
-  * $\frac{N_{\textrm{t}}}{\rho}\mathbf{I}*{N*{\textrm{r}}} \right)^{-1}
-    \widehat{\mathbf{H}}$
-* The true channel is always used in the SINR computation:
-  $\mathrm{SINR}_{k}(\widehat{\mathbf{H}})=
-  \frac{|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}*k|^2}
-  \sum*{j\neq k}|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_j|^2$
+Given an estimated channel
+(\widehat{\mathbf{H}} \in \mathbb{C}^{N_{\mathrm{r}} \times N_{\mathrm{t}}}),
+the linear minimum mean-square error (LMMSE) detector is constructed as
 
-  * $\frac{N_{\textrm{t}}}{\rho}|\mathbf{w}_k|^2}$
-* Spectral efficiency is then:
-  $\mathrm{SE}(\widehat{\mathbf{H}})=
-  \sum_{k=1}^{N_{\textrm{t}}}\log_2\bigl(1+\mathrm{SINR}_k(\widehat{\mathbf{H}})\bigr)$
+[
+\mathbf{W}(\widehat{\mathbf{H}})
+================================
 
-SE is evaluated for:
+\left(
+\widehat{\mathbf{H}}\widehat{\mathbf{H}}^{\mathsf{H}}
++
+\frac{N_{\mathrm{t}}}{\rho}\mathbf{I}*{N*{\mathrm{r}}}
+\right)^{-1}
+\widehat{\mathbf{H}}
+====================
 
-* True channel
-* GPR-predicted channel
-* LS estimate
-* MMSE estimate
+[\mathbf{w}*1,\ldots,\mathbf{w}*{N_{\mathrm{t}}}],
+]
 
-All kernels are implemented, although **only the Matérn kernel** is presented in **Fig. 3 and Table II** of the paper.
+where (\rho) denotes the signal-to-noise ratio (SNR), and
+(\mathbf{w}_k) is the detector vector for stream (k).
+
+#### Post-Equalization SINR
+
+Let (\mathbf{h}_k) denote the (k)-th column of the **true** channel matrix (\mathbf{H}).
+The post-equalization signal-to-interference-plus-noise ratio (SINR) of stream (k) is computed as
+
+[
+\mathrm{SINR}_{k}(\widehat{\mathbf{H}})
+=======================================
+
+\frac{\bigl|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}*k\bigr|^2}
+{\sum*{j\neq k}\bigl|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}*j\bigr|^2
++
+\frac{N*{\mathrm{t}}}{\rho},|\mathbf{w}_k|^2}.
+]
+
+Note that the **true channel (\mathbf{H})** is always used inside the SINR expression, while the estimate (\widehat{\mathbf{H}}) affects performance only through the detector (\mathbf{W}(\widehat{\mathbf{H}})).
+
+#### Spectral Efficiency
+
+The corresponding spectral efficiency is then given by
+
+[
+\mathrm{SE}(\widehat{\mathbf{H}})
+=================================
+
+\sum_{k=1}^{N_{\mathrm{t}}}
+\log_2!\left(1+\mathrm{SINR}_{k}(\widehat{\mathbf{H}})\right).
+]
+
+#### Compared Estimators
+
+Spectral efficiency is evaluated for the following channel estimates:
+
+* True channel (\mathbf{H})
+* GPR-predicted channel (\widehat{\mathbf{H}}_{\mathrm{GPR}})
+* Least-squares (LS) estimate (\widehat{\mathbf{H}}_{\mathrm{LS}})
+* MMSE estimate (\widehat{\mathbf{H}}_{\mathrm{MMSE}})
+
+All three GPR kernels (RBF, Matérn, and Rational Quadratic) are implemented in the repository.
+However, **only the Matérn kernel** is reported in **Fig. 3 and Table II** of the paper.
 
 ---
 
