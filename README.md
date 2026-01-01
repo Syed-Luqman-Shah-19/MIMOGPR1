@@ -127,16 +127,7 @@ To assess how well CSI prediction preserves communication performance, the noteb
 Given an estimated channel $\widehat{\mathbf{H}} \in \mathbb{C}^{N_{\mathrm{r}} \times N_{\mathrm{t}}}$, the linear minimum mean-square error (LMMSE) detector is constructed as
 
 $$
-\mathbf{W}(\widehat{\mathbf{H}})
-=
-\left(
-\widehat{\mathbf{H}}\widehat{\mathbf{H}}^{\mathsf{H}}
-+
-\frac{N_{\mathrm{t}}}{\rho}\mathbf{I}_{N_{\mathrm{r}}}
-\right)^{-1}
-\widehat{\mathbf{H}}
-=
-[\mathbf{w}_1,\ldots,\mathbf{w}_{N_{\mathrm{t}}}]
+\mathbf{W}(\widehat{\mathbf{H}}) = \left(\widehat{\mathbf{H}}\widehat{\mathbf{H}}^{\mathsf{H}}+\frac{N_{\mathrm{t}}}{\rho}\mathbf{I}_{N_{\mathrm{r}}}\right)^{-1}\widehat{\mathbf{H}}=[\mathbf{w}_1,\ldots,\mathbf{w}_{N_{\mathrm{t}}}]
 $$
 
 
@@ -146,13 +137,7 @@ where $\rho$ denotes the signal-to-noise ratio (SNR), and $\mathbf{w}_k$ is the 
 
 Let $\mathbf{h}_k$ denote the $k$-th column of the **true** channel matrix $\mathbf{H}$. The post-equalization signal-to-interference-plus-noise ratio (SINR) of stream $k$ is computed as
 
-$$
-\mathrm{SINR}_{k}(\widehat{\mathbf{H}})
-=
-\frac{\left|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_k\right|^2}
-{\sum_{j\neq k}\left|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_j\right|^2
-+
-\frac{N_{\mathrm{t}}}{\rho}\,\lVert\mathbf{w}_k\rVert^2}
+$$\mathrm{SINR}_{k}(\widehat{\mathbf{H}})=\frac{\left|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_k\right|^2}{\sum_{j\neq k}\left|\mathbf{w}_k^{\mathsf{H}}\mathbf{h}_j\right|^2+\frac{N_{\mathrm{t}}}{\rho}\,\lVert\mathbf{w}_k\rVert^2}
 $$.
 
 Note that the **true channel $\mathbf{H}$** is always used inside the SINR expression, while the estimate $\widehat{\mathbf{H}}$ affects performance only through the detector $\mathbf{W}(\widehat{\mathbf{H}})$.
@@ -162,10 +147,7 @@ Note that the **true channel $\mathbf{H}$** is always used inside the SINR expre
 The corresponding spectral efficiency is then given by
 
 $$
-\mathrm{SE}(\widehat{\mathbf{H}})
-=
-\sum_{k=1}^{N_{\mathrm{t}}}
-\log_2\!\left(1+\mathrm{SINR}_{k}(\widehat{\mathbf{H}})\right)
+\mathrm{SE}(\widehat{\mathbf{H}})=\sum_{k=1}^{N_{\mathrm{t}}}\log_2\!\left(1+\mathrm{SINR}_{k}(\widehat{\mathbf{H}})\right)
 $$.
 
 #### Compared Estimators
